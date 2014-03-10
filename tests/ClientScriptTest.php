@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace IMT\YiiAssetic\Tests;
+namespace IMT\YiiAssetic;
 
 use IMT\YiiAssetic\ClientScript;
 

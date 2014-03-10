@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace IMT\YiiAssetic\Tests\Fixture;
+namespace IMT\YiiAssetic\Fixture;
 
 /**
  * @author Igor Timoshenko <igor.timoshenko@i.ua>

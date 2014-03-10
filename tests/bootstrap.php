@@ -25,6 +25,6 @@ if ((!$loader = includeIfExists(__DIR__ . '/../vendor/autoload.php'))
     exit(1);
 }
 
-$loader->add('IMT\YiiAssetic\Tests\\', __DIR__);
+$loader->addPsr4('IMT\\YiiAssetic\\', __DIR__);
 
 includeIfExists(__DIR__ . '/../vendor/yiisoft/yii/framework/yii.php');

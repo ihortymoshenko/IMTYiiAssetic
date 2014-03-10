@@ -9,17 +9,24 @@
  * file that was distributed with this source code.
  */
 
-namespace IMT\YiiAssetic\Tests\Fixture;
+namespace IMT\YiiAssetic\Fixture;
 
 /**
  * @author Igor Timoshenko <igor.timoshenko@i.ua>
  */
-class Worker implements \Assetic\Factory\Worker\WorkerInterface
+class Filter implements \Assetic\Filter\FilterInterface
 {
     /**
      * {@inheritDoc}
      */
-    public function process(\Assetic\Asset\AssetInterface $asset, \Assetic\Factory\AssetFactory $factory)
+    public function filterLoad(\Assetic\Asset\AssetInterface $asset)
+    {
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function filterDump(\Assetic\Asset\AssetInterface $asset)
     {
     }
 }

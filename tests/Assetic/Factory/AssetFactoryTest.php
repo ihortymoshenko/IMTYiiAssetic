@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace IMT\YiiAssetic\Tests\Assetic\Factory;
+namespace IMT\YiiAssetic\Assetic\Factory;
 
 use IMT\YiiAssetic\Assetic\Factory\AssetFactory;
 
