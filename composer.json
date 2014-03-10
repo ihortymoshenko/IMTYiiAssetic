@@ -1,0 +1,41 @@
+{
+    "name": "imt/yii-assetic",
+    "description": "This extension integrates Assetic into Yii",
+    "type": "yii-extension",
+    "keywords": [
+        "yii",
+        "assetic"
+    ],
+    "homepage": "http://github.com/IgorTimoshenko/IMTYiiAssetic",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Igor Timoshenko",
+            "email": "igor.timoshenko@i.ua",
+            "homepage": "http://igortimoshenko.com"
+        }
+    ],
+    "support": {
+        "email": "igor.timoshenko@i.ua",
+        "issues": "http://github.com/IgorTimoshenko/IMTYiiAssetic/issues",
+        "wiki": "http://github.com/IgorTimoshenko/IMTYiiAssetic/wiki",
+        "source": "http://github.com/IgorTimoshenko/IMTYiiAssetic"
+    },
+    "require": {
+        "php": ">=5.3.2",
+        "yiisoft/yii": ">=1.1.14",
+        "kriswallsmith/assetic": ">=1.1.2"
+    },
+    "require-dev": {
+        "phploc/phploc": "2.*",
+        "squizlabs/php_codesniffer": "1.*",
+        "phpunit/phpunit": "3.7.*",
+        "satooshi/php-coveralls": "v0.6.1"
+    },
+    "autoload": {
+        "psr-0": {
+            "IMT\\YiiAssetic": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
