@@ -427,7 +427,7 @@ class AssetManager extends \CAssetManager
      */
     protected function resolveFilterByExt($ext, array $filtersByExt = array())
     {
-        if ($filtersByExt) {
+        if (!$filtersByExt) {
             $filtersByExt = $this->filtersByExt;
         }
 
