@@ -186,7 +186,7 @@ class AssetManager extends \CAssetManager
         if ($this->linkAssets) {
             throw new LogicException(
                 sprintf(
-                    'The `%s` property was disabled by IMTYiiAssetic.',
+                    'The `%s` property is not supported by IMTYiiAssetic.',
                     __CLASS__ . '::linkAssets'
                 )
             );
@@ -207,7 +207,8 @@ class AssetManager extends \CAssetManager
             }
 
             if (is_file($realPath)) {
-                $asset = $this->createAsset($realPath, array(), $options);
+                $filters = $this->resolveFilterByExt(\CFileHelper::getExtension($realPath), $filtersByExt);
+                $asset = $this->createAsset($realPath, $filters, $options);
                 $this->writeAsset($asset, $forceCopy);
 
                 return $this->published[$path] = $this->getBaseUrl() . '/' . $asset->getTargetPath();
@@ -333,16 +334,16 @@ class AssetManager extends \CAssetManager
     }
 
     /**
-     * @param  string         $path    The asset source path
-     * @param  array          $filters An array of filter names
+     * @param  string|array   $inputs
+     * @param  array          $filters
      * @param  array          $options
      * @return AssetInterface
      */
-    protected function createAsset($path, array $filters, array $options)
+    protected function createAsset($inputs = array(), $filters = array(), array $options = array())
     {
         $this->getFilterInitializer()->initialize($filters);
 
-        $asset = $this->getAssetFactory()->createAsset($path, $filters, $options);
+        $asset = $this->getAssetFactory()->createAsset($inputs, $filters, $options);
 
         if ($this->cache) {
             return $this->cacheAsset($asset);

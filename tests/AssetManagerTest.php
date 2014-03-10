@@ -65,7 +65,7 @@ class AssetManagerTest extends \PHPUnit_Framework_TestCase
 
         $this->setExpectedException(
             'IMT\YiiAssetic\Exception\LogicException',
-            'The `IMT\YiiAssetic\AssetManager::linkAssets` property was disabled by IMTYiiAssetic.'
+            'The `IMT\YiiAssetic\AssetManager::linkAssets` property is not supported by IMTYiiAssetic.'
         );
 
         $this->assetManager->publish(str_replace('/', DIRECTORY_SEPARATOR, __DIR__ . '/Fixture/public/css/file.css'));
