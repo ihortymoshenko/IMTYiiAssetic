@@ -207,7 +207,7 @@ class AssetManager extends \CAssetManager
             }
 
             if (is_file($realPath)) {
-                $filters = $this->resolveFilterByExt(\CFileHelper::getExtension($realPath), $filtersByExt);
+                $filters = $this->resolveFiltersByExt(\CFileHelper::getExtension($realPath), $filtersByExt);
                 $asset = $this->createAsset($realPath, $filters, $options);
                 $this->writeAsset($asset, $forceCopy);
 
@@ -220,7 +220,7 @@ class AssetManager extends \CAssetManager
 
                 if (!$combineTo) {
                     foreach ($files as $file) {
-                        $filters = $this->resolveFilterByExt(\CFileHelper::getExtension($file), $filtersByExt);
+                        $filters = $this->resolveFiltersByExt(\CFileHelper::getExtension($file), $filtersByExt);
                         $asset = $this->createAsset($file, $filters, $options);
                         $this->writeAsset($asset, $forceCopy);
                     }
@@ -239,7 +239,7 @@ class AssetManager extends \CAssetManager
                         // do not combine some file types (e.g. images)
                         if (!in_array($ext, array('css', 'js'), true)) {
                             foreach ($files as $file) {
-                                $filters = $this->resolveFilterByExt($ext, $filtersByExt);
+                                $filters = $this->resolveFiltersByExt($ext, $filtersByExt);
                                 $asset = $this->createAsset($file, $filters, $options);
                                 $this->writeAsset($asset, $forceCopy);
                             }
@@ -247,7 +247,7 @@ class AssetManager extends \CAssetManager
                             continue;
                         }
 
-                        $filters = $this->resolveFilterByExt($ext, $filtersByExt);
+                        $filters = $this->resolveFiltersByExt($ext, $filtersByExt);
                         $asset = $this->createAsset($files, $filters, $options);
                         $this->writeAsset($asset, $forceCopy);
 
@@ -335,7 +335,7 @@ class AssetManager extends \CAssetManager
 
     /**
      * @param  string|array   $inputs
-     * @param  array          $filters
+     * @param  string|array   $filters
      * @param  array          $options
      * @return AssetInterface
      */
@@ -423,7 +423,7 @@ class AssetManager extends \CAssetManager
      *                              extensions and filters
      * @return array
      */
-    protected function resolveFilterByExt($ext, array $filtersByExt = array())
+    protected function resolveFiltersByExt($ext, array $filtersByExt = array())
     {
         if (!$filtersByExt) {
             $filtersByExt = $this->filtersByExt;
