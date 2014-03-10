@@ -311,10 +311,7 @@ class AssetManager extends \CAssetManager
     public function getAssetFactory()
     {
         if ($this->assetFactory === null) {
-            $this->assetFactory = new AssetFactory(
-                \Yii::getPathOfAlias('application') . '/',
-                $this->debug
-            );
+            $this->assetFactory = new AssetFactory(\Yii::getPathOfAlias('application'), $this->debug);
             $this->assetFactory->setDefaultOutput('/*');
             $this->assetFactory->setAssetManager($this->getAssetManager());
             $this->assetFactory->setFilterManager($this->getFilterManager());
