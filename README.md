@@ -173,6 +173,33 @@ specified, will be used the `filtersByExt` property that defined under the
 Determines whether assets will be combined into one asset. Actually it as a
 filename, the file extension should be omitted.
 
+```php
+return array(
+    // ...
+    'components' => array(
+        'clientScript' => array(
+            'class'    => 'IMT\YiiAssetic\ClientScript',
+            'packages' => array(
+                'smth' => array(
+                    'basePath'     => 'application.js.src.smth',
+                    'css'          => array(
+                        'css/file.css',
+                        'css/file2.css',
+                    ),
+                    'filtersByExt' => array(
+                        'css' => array('css_rewrite'),
+                    ),
+                    'combineTo'    => 'smth',
+                ),
+                // more packages
+            ),
+            // ...
+        ),
+    ),
+    // ...
+);
+```
+
 ## Testing ##
 
 ```sh
