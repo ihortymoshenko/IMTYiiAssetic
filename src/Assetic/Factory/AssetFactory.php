@@ -28,8 +28,8 @@ class AssetFactory extends \Assetic\Factory\AssetFactory
         $partPaths = pathinfo($path);
 
         $name = str_replace($options['root'], '', $path);
-        $name = str_replace($partPaths['basename'], '', $name);
+        $name = dirname($name);
 
-        return ltrim($name . $partPaths['filename'], '/');
+        return ltrim("{$name}/{$partPaths['filename']}", '/');
     }
 }

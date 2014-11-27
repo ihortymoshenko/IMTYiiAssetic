@@ -29,4 +29,16 @@ class AssetFactoryTest extends \PHPUnit_Framework_TestCase
             $assetFactory->generateAssetName(array(__FILE__), array(), array('root' => $root))
         );
     }
+
+    public function testGenerateAssetNameWithAssetNameEqualsToFolderName()
+    {
+        $root = realpath(__DIR__ . DIRECTORY_SEPARATOR . '..');
+
+        $assetFactory = new AssetFactory($root);
+
+        $this->assertEquals(
+            'some_dir/normalize.css/normalize',
+            $assetFactory->generateAssetName(array("/some_dir/normalize.css/normalize.css"), array(), array('root' => $root))
+        );
+    }
 }
