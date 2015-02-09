@@ -13,8 +13,6 @@ namespace IMT\YiiAssetic;
 
 use Assetic\FilterManager;
 
-use IMT\YiiAssetic\FilterInitializer;
-
 /**
  * @author Igor Timoshenko <igor.timoshenko@i.ua>
  */

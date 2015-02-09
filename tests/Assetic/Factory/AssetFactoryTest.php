@@ -11,8 +11,6 @@
 
 namespace IMT\YiiAssetic\Assetic\Factory;
 
-use IMT\YiiAssetic\Assetic\Factory\AssetFactory;
-
 /**
  * @author Igor Timoshenko <igor.timoshenko@i.ua>
  */
@@ -38,7 +36,7 @@ class AssetFactoryTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             'some_dir/normalize.css/normalize',
-            $assetFactory->generateAssetName(array("/some_dir/normalize.css/normalize.css"), array(), array('root' => $root))
+            $assetFactory->generateAssetName(array('/some_dir/normalize.css/normalize.css'), array(), array('root' => $root))
         );
     }
 }

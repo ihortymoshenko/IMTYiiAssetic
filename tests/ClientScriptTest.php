@@ -11,8 +11,6 @@
 
 namespace IMT\YiiAssetic;
 
-use IMT\YiiAssetic\ClientScript;
-
 /**
  * @author Igor Timoshenko <igor.timoshenko@i.ua>
  */
@@ -33,7 +31,7 @@ class ClientScriptTest extends \PHPUnit_Framework_TestCase
             ->method('recordCachingAction');
 
         $clientScript->packages['smth'] = array(
-            'basePath'  => __DIR__ . '/Fixture/public',
+            'basePath'  => __DIR__ . '/app/web',
             'js'        => array(
                 'js/file.js',
                 'js/file2.js',
@@ -49,5 +47,13 @@ class ClientScriptTest extends \PHPUnit_Framework_TestCase
 
         $this->assertAttributeEquals(array(array('/smth.js' => '/smth.js')), 'scriptFiles', $clientScript);
         $this->assertAttributeEquals(array('/smth.css' => ''), 'cssFiles', $clientScript);
+    }
+
+    public function testWebApplication()
+    {
+        $this->expectOutputRegex('~/assets/[0-9a-z]{8}/smth.js~');
+        $this->expectOutputRegex('~/assets/[0-9a-z]{8}/smth.css~');
+
+        require_once __DIR__ . '/app/web/index.php';
     }
 }

@@ -17,7 +17,7 @@ phploc:
 	php vendor/bin/phploc --progress src/ tests/
 
 phpcs:
-	php vendor/bin/phpcs --standard=PSR2 --ignore=vendor/ --extensions=php . -n -p
+	php vendor/bin/phpcs --standard=PSR2 --ignore=tests/app/,vendor/ --extensions=php . -n -p
 
 phpunit:
 	php vendor/bin/phpunit --coverage-text

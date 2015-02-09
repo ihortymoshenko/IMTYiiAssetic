@@ -11,8 +11,6 @@
 
 namespace IMT\YiiAssetic;
 
-use IMT\YiiAssetic\AssetManager;
-
 /**
  * @author Igor Timoshenko <igor.timoshenko@i.ua>
  */
@@ -76,7 +74,7 @@ class AssetManagerTest extends \PHPUnit_Framework_TestCase
         $rm = new \ReflectionMethod('IMT\YiiAssetic\AssetManager', 'generatePath');
         $rm->setAccessible(true);
 
-        $path = str_replace('/', DIRECTORY_SEPARATOR, __DIR__ . '/Fixture/public');
+        $path = str_replace('/', DIRECTORY_SEPARATOR, __DIR__ . '/app/web');
         $hash = $rm->invoke($this->assetManager, $path);
 
         $this->assertEquals(
@@ -95,7 +93,7 @@ class AssetManagerTest extends \PHPUnit_Framework_TestCase
 
     public function testGetPublishedPathFile()
     {
-        $path = str_replace('/', DIRECTORY_SEPARATOR, __DIR__ . '/Fixture/public/css/file.css');
+        $path = str_replace('/', DIRECTORY_SEPARATOR, __DIR__ . '/app/web/css/file.css');
 
         $this->assertEquals(
             $this->assetManager->getPublishedPath($path),
@@ -105,7 +103,7 @@ class AssetManagerTest extends \PHPUnit_Framework_TestCase
 
     public function testGetPublishedPathDirectory()
     {
-        $path = str_replace('/', DIRECTORY_SEPARATOR, __DIR__ . '/Fixture/public');
+        $path = str_replace('/', DIRECTORY_SEPARATOR, __DIR__ . '/app/web');
 
         $this->assertEquals(
             $this->assetManager->getPublishedPath($path),
@@ -115,7 +113,7 @@ class AssetManagerTest extends \PHPUnit_Framework_TestCase
 
     public function testGetPublishedUrlMemoized()
     {
-        $path = str_replace('/', DIRECTORY_SEPARATOR, __DIR__ . '/Fixture/public/css/file.css');
+        $path = str_replace('/', DIRECTORY_SEPARATOR, __DIR__ . '/app/web/css/file.css');
 
         $this->assertEquals(
             $this->assetManager->publish($path),
@@ -130,7 +128,7 @@ class AssetManagerTest extends \PHPUnit_Framework_TestCase
 
     public function testGetPublishedUrlFile()
     {
-        $path = str_replace('/', DIRECTORY_SEPARATOR, __DIR__ . '/Fixture/public/css/file.css');
+        $path = str_replace('/', DIRECTORY_SEPARATOR, __DIR__ . '/app/web/css/file.css');
 
         $this->assertEquals(
             $this->assetManager->getPublishedUrl($path),
@@ -140,7 +138,7 @@ class AssetManagerTest extends \PHPUnit_Framework_TestCase
 
     public function testGetPublishedUrlDirectory()
     {
-        $path = str_replace('/', DIRECTORY_SEPARATOR, __DIR__ . '/Fixture/public');
+        $path = str_replace('/', DIRECTORY_SEPARATOR, __DIR__ . '/app/web');
 
         $this->assertEquals(
             $this->assetManager->getPublishedUrl($path),
@@ -157,7 +155,7 @@ class AssetManagerTest extends \PHPUnit_Framework_TestCase
 
     public function testWriteAssetNotModified()
     {
-        $path          = str_replace('/', DIRECTORY_SEPARATOR, __DIR__ . '/Fixture/public/css/file.css');
+        $path          = str_replace('/', DIRECTORY_SEPARATOR, __DIR__ . '/app/web/css/file.css');
         $publishedPath = $this->basePath . $this->assetManager->publish($path);
 
         $filemtime = filemtime($publishedPath);
@@ -172,7 +170,7 @@ class AssetManagerTest extends \PHPUnit_Framework_TestCase
 
     public function testWriteAssetForced()
     {
-        $path          = str_replace('/', DIRECTORY_SEPARATOR, __DIR__ . '/Fixture/public/css/file.css');
+        $path          = str_replace('/', DIRECTORY_SEPARATOR, __DIR__ . '/app/web/css/file.css');
         $publishedPath = $this->basePath . $this->assetManager->publish($path);
 
         $filemtime = filemtime($publishedPath);

@@ -1,4 +1,5 @@
 build/
+tests/app/web/assets/
 vendor/
 composer.lock
 composer.phar
