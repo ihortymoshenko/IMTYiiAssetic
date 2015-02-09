@@ -51,8 +51,8 @@ class ClientScriptTest extends \PHPUnit_Framework_TestCase
 
     public function testWebApplication()
     {
-        $this->expectOutputRegex('~/assets/[0-9a-z]{8}/smth.js~');
-        $this->expectOutputRegex('~/assets/[0-9a-z]{8}/smth.css~');
+        $this->expectOutputRegex('~/assets/[0-9a-z]+/smth\.js~');
+        $this->expectOutputRegex('~/assets/[0-9a-z]+/smth\.css~');
 
         require_once __DIR__ . '/app/web/index.php';
     }
