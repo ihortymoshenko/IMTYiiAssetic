@@ -1,5 +1,5 @@
 build/
-tests/app/web/assets/
+!tests/app/web/assets/.gitkeep
 vendor/
 composer.lock
 composer.phar
