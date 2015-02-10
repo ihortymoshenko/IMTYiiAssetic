@@ -19,13 +19,9 @@ To install `IMTYiiAssetic` with [Composer][2] just add the following to your
 
 ```json
 {
-    // ...
     "require": {
-        // ...
         "imt/yii-assetic": "dev-master"
-        // ...
     }
-    // ...
 }
 ```
 
