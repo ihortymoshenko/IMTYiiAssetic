@@ -1,5 +1,5 @@
 {
-    "name": "imt/yii-assetic",
+    "name": "carterqw/yii-assetic",
     "description": "This extension integrates Assetic into Yii",
     "type": "yii-extension",
     "keywords": [
@@ -39,7 +39,8 @@
     "autoload": {
         "psr-4": {
             "IMT\\YiiAssetic\\": "src/"
-        }
+        },
+        "classmap": [ "src/" ]
     },
     "minimum-stability": "dev"
 }
